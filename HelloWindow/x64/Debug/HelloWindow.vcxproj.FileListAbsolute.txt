@@ -1,0 +1,2 @@
+G:\C++ Project\LearnOpenGL\Hello Window\HelloWindow\x64\Debug\HelloWindow.exe
+G:\C++ Project\LearnOpenGL\HelloWindow\x64\Debug\HelloWindow.exe
