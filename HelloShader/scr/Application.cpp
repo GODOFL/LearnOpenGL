@@ -103,7 +103,7 @@ int main() {
 
 	// 定义通用顶点属性数据的数组
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GL_FLOAT)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	// 启用或禁用通用顶点属性数组，参数为指定要启用或禁用的通用顶点属性索引
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
