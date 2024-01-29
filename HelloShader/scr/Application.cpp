@@ -39,9 +39,10 @@ int main() {
 	gladLoadGL();
 
 	GLfloat vertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.0f,  0.5f, 0.0f,
+		//    坐标                /            颜色
+		-0.5f, -0.5f, 0.0f,           1.0f, 0.0f, 0.0f,
+		 0.5f, -0.5f, 0.0f,           0.0f, 1.0f, 0.0f,
+		 0.0f,  0.5f, 0.0f,           0.0f, 0.0f, 1.0f,
 	};
 
 	std::string vertexCode = get_file_contents("./res/Shaders/default.vert");
@@ -101,9 +102,11 @@ int main() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	// 定义通用顶点属性数据的数组
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GL_FLOAT)));
 	// 启用或禁用通用顶点属性数组，参数为指定要启用或禁用的通用顶点属性索引
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 
 	// 解绑顶点缓冲对象
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -123,11 +126,11 @@ int main() {
 		glUseProgram(shaderProgram);
 
 		// 设置着色器程序中ourColor的值
-		GLfloat timeValue = glfwGetTime();
-		GLfloat greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-		GLint vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-		//                                R        G        B    透明度
-		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+		//GLfloat timeValue = glfwGetTime();
+		//GLfloat greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+		//GLint vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+		////                                R        G        B    透明度
+		//glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
 		// 从顶点数组对象中获取顶点信息
 		glBindVertexArray(VAO);
